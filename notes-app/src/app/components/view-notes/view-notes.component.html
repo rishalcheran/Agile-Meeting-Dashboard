@@ -1,0 +1,68 @@
+<div class="mainContent">
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-card class="childContent">
+            <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="40" class="heading" style="text-align: center;">
+                        View Meeting Notes</div>
+                    <div fxFlex="30" fxLayout="row" fxLayoutAlign="space-evenly center"></div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <div class="childContent">
+            <mat-card>
+                <table matSort #usersSort="matSort" class="contactsTable" mat-table [dataSource]="notes">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">ID</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="title">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Title</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="notes">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Notes</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Date</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="time">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Time</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="user">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Created By</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.user}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator class="paginator" [length]="notes.data.length" [pageSize]="20" paginationPageSize="20"
+                    [pageSizeOptions]="[20, 30, 50, 100]"></mat-paginator>
+                <br /> <br />
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="mainContent">
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-card class="childContent">
+            <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxFlex="30"></div>
+                    <div fxFlex="40" class="heading" style="text-align: center;">
+                        View Meeting Actions</div>
+                    <div fxFlex="30" fxLayout="row" fxLayoutAlign="space-evenly center"></div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <div class="childContent">
+            <mat-card>
+                <table matSort #usersSort="matSort" mat-table [dataSource]="actions">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">ID</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Action</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="assignDate">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Assigned Date</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.assignDate}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="completionDate">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Completion Date</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.completionDate}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="assignedTo">
+                        <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>
+                            <h4 class="bold">Assigned To</h4>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.assignedTo}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator class="paginator" [length]="actions.data.length" [pageSize]="20" paginationPageSize="20"
+                    [pageSizeOptions]="[20, 30, 50, 100]"></mat-paginator>
+                <br /> <br />
+            </mat-card>
+        </div>
+    </div>
+</div>

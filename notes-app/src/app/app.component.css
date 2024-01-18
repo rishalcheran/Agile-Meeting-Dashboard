@@ -1,0 +1,16 @@
+.spacer {
+    flex: 1 1 auto;
+    flex-direction: row;
+  }
+
+  .mat-button-toggle-appearance-standard {
+    color: white;
+    background-color: #1976d2;
+  }
+
+  .border-0{
+    border: 0px;
+    padding-left: 3%;
+    margin-top: -20px;
+    font-size: medium;
+}
