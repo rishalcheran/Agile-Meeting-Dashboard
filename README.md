@@ -1,4 +1,4 @@
-# Vsoft-agile meeting dash bord 
+# Vsoft-AGILE MEETING DASHBORD
 Tech Stack used: Java , Angular , JPA Athentication , MY SQL 
 RUN THE FILES 
 1) amd-backend in INTELLIJ IDEA
