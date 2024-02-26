@@ -1,4 +1,4 @@
-# Vsoft-AGILE MEETING DASHBOARD
+# AGILE MEETING DASHBOARD
 
 ## Tech Stack
 - Java
